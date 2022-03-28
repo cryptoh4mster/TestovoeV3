@@ -20,7 +20,8 @@ namespace TestovoeV3DAL.Helpers
                         IFormFile file = new FormFile(output, 0, output.Length, "name", "fileName")
                         {
                             Headers = new HeaderDictionary(),
-                            ContentType = "test",
+                            ContentType = "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                            ContentDisposition = "form-data; name=\"File\"; filename=\"Тестовое задание (2).docx\""
                         };
                         System.Net.Mime.ContentDisposition cd = new System.Net.Mime.ContentDisposition
                         {

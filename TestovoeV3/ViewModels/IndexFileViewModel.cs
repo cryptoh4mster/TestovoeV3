@@ -8,7 +8,8 @@ namespace TestovoeV3.ViewModels
 {
     public class IndexFileViewModel
     {
+        public int Id { get; set; }
         public string FileName { get; set; }
-        public IFormFile Image { get; set; }
+        public IFormFile File { get; set; }
     }
 }

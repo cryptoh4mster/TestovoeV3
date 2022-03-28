@@ -1,9 +1,4 @@
 ﻿using NLog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using TestovoeV3.Logger;
 
 namespace TestovoeV3.Logger
 {

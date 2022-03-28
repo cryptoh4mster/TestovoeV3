@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using TestovoeV3.Logger;
 using TestovoeV3.ViewModels;
@@ -10,10 +11,12 @@ using TestovoeV3BLL.Services;
 
 namespace TestovoeV3.Controllers
 {
+    
     [ApiController]
     [Route("api/[controller]")]
     public class FileController : ControllerBase
     {
+        
         private readonly IMapper _mapper;
         private readonly IFileService _fileService;
         private readonly ILoggerManager _logger;
@@ -54,7 +57,7 @@ namespace TestovoeV3.Controllers
         }
 
         [HttpPost]
-        [Route("files/add")]
+        [Route("files")]
         public async Task<ActionResult<CreateFileViewModel>> AddFile([FromForm] CreateFileViewModel fileViewModel)
         {
             try
@@ -74,7 +77,7 @@ namespace TestovoeV3.Controllers
 
         [HttpDelete]
         [Route("files/{id}")]
-        public async Task<ActionResult> DeleteMovieById(int id)
+        public async Task<ActionResult> DeleteFileById(int id)
         {
             try
             {
