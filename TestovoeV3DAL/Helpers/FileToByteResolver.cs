@@ -5,6 +5,9 @@ using System.IO.Compression;
 
 namespace TestovoeV3DAL.Helpers
 {
+    /// <summary>
+    /// Класс для преобразования IFormFile в bytes[]
+    /// </summary>
     public class FileToByteResolver : IValueConverter<IFormFile, byte[]>
     {
         public byte[] Convert(IFormFile file, ResolutionContext context)

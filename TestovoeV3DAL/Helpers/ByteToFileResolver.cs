@@ -5,7 +5,10 @@ using System.IO.Compression;
 
 namespace TestovoeV3DAL.Helpers
 {
-    //TODO: Сделать нормально contenttype и имя файла и contentdisposition
+    /// <summary>
+    /// Класс для преобразования byte[] в IFormFile
+    /// Используется встроенная в .net функция для сжатия массива байтов
+    /// </summary>
     public class ByteToFileResolver : IValueConverter<byte[], IFormFile>
     {
         public IFormFile Convert(byte[] data, ResolutionContext context)
@@ -20,8 +23,8 @@ namespace TestovoeV3DAL.Helpers
                         IFormFile file = new FormFile(output, 0, output.Length, "name", "fileName")
                         {
                             Headers = new HeaderDictionary(),
-                            ContentType = "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-                            ContentDisposition = "form-data; name=\"File\"; filename=\"Тестовое задание (2).docx\""
+                            ContentType = "application/json",
+                            ContentDisposition = "form-data"
                         };
                         System.Net.Mime.ContentDisposition cd = new System.Net.Mime.ContentDisposition
                         {

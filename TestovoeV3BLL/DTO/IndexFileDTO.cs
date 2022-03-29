@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace TestovoeV3BLL.DTO
 {
+    /// <summary>
+    /// ДТО для получения файла
+    /// </summary>
     public class IndexFileDTO
     {
         public int Id { get; set; }

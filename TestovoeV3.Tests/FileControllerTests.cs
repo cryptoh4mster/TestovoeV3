@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using System.Collections.Generic;
@@ -10,7 +9,6 @@ using TestovoeV3.Mappings;
 using TestovoeV3.ViewModels;
 using TestovoeV3BLL.DTO;
 using TestovoeV3BLL.Services;
-using TestovoeV3DAL.Interfaces;
 using Xunit;
 
 namespace TestovoeV3.Tests

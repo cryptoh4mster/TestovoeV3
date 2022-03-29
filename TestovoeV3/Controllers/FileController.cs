@@ -11,7 +11,9 @@ using TestovoeV3BLL.Services;
 
 namespace TestovoeV3.Controllers
 {
-    
+    /// <summary>
+    /// Контроллер для работы с файлами
+    /// </summary>
     [ApiController]
     [Route("api/[controller]")]
     public class FileController : ControllerBase
@@ -20,12 +22,24 @@ namespace TestovoeV3.Controllers
         private readonly IMapper _mapper;
         private readonly IFileService _fileService;
         private readonly ILoggerManager _logger;
+
+        /// <summary>
+        /// Конструктор контроллера
+        /// </summary>
+        /// <param name="fileService">Сервис для работы с файлами из BLL</param>
+        /// <param name="mapper">Класс для маппинга VM->DTO DTO->VM</param>
+        /// <param name="logger">Класс для логгирования ошибок</param>
         public FileController(IFileService fileService, IMapper mapper, ILoggerManager logger)
         {
             _fileService = fileService;
             _mapper = mapper;
             _logger = logger;
         }
+
+        /// <summary>
+        /// Получение всех файлов и передача на клиент
+        /// </summary>
+        /// <returns>Список VM файлов</returns>
         [HttpGet]
         [Route("files")]
         public async Task<ActionResult<IEnumerable<IndexFileViewModel>>> GetFiles()
@@ -39,6 +53,11 @@ namespace TestovoeV3.Controllers
             return Ok(fileViewModels);
         }
 
+        /// <summary>
+        /// Получить файл по id и передать на клиент
+        /// </summary>
+        /// <param name="id">Id файла</param>
+        /// <returns>VM файл</returns>
         [HttpGet]
         [Route("files/{id}")]
         public async Task<ActionResult<IndexFileViewModel>> GetFileById(int id)
@@ -56,6 +75,11 @@ namespace TestovoeV3.Controllers
             }
         }
 
+        /// <summary>
+        /// Получить с клиента VM файла и отправить VM нового файла в BLL
+        /// </summary>
+        /// <param name="fileViewModel">VM файла</param>
+        /// <returns>Добавленный VM файла</returns>
         [HttpPost]
         [Route("files")]
         public async Task<ActionResult<CreateFileViewModel>> AddFile([FromForm] CreateFileViewModel fileViewModel)
@@ -75,6 +99,11 @@ namespace TestovoeV3.Controllers
             }
         }
 
+        /// <summary>
+        /// Удалить файл по Id
+        /// </summary>
+        /// <param name="id">Id файла</param>
+        /// <returns>Результат операции</returns>
         [HttpDelete]
         [Route("files/{id}")]
         public async Task<ActionResult> DeleteFileById(int id)
