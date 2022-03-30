@@ -2,7 +2,8 @@
 using TestovoeV3.ViewModels;
 using TestovoeV3BLL.DTO;
 using TestovoeV3DAL.Entities;
-using TestovoeV3DAL.Helpers;
+using TestovoeV3BLL.Helpers;
+
 
 namespace TestovoeV3.Mappings
 {

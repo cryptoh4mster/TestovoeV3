@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using System.IO;
 using System.IO.Compression;
 
-namespace TestovoeV3DAL.Helpers
+namespace TestovoeV3BLL.Helpers
 {
     /// <summary>
     /// Класс для преобразования byte[] в IFormFile
